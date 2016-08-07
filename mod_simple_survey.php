@@ -23,6 +23,7 @@ $template = $params->get('template', 0);
 $url_type = $params->get('url_type', '_blank');
 $html_params_positive = $params->get('html_params_positive', '');
 $html_params_negative = $params->get('html_params_negative', '');
+$include_js = $params->get('include_js', '');
 
 $css = '
 .simplesurvey a {
@@ -95,6 +96,8 @@ $css = '
     border-bottom-left-radius: 0;
 }
 ';
+
+if ($include_js) $doc->addScriptDeclaration($include_js);
 
 switch ($template) {
 	case 1:
