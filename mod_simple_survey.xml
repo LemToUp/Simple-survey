@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module"
+           version="2.5"
+           method="upgrade">
+	<name>Simple survey</name>
+	<creationDate>August 1, 2016</creationDate>
+	<author>Dmitry Rumiantsev</author>
+	<license>GNU General Public License version 2, or later.</license>
+	<version>1.0.0</version>
+	<description>MOD_SIMPLE_SURVEY_DESC</description>
+
+	<files>
+		<filename module="mod_simple_survey">mod_simple_survey.php</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_simple_survey.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_simple_survey.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="text_message"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_TEXT_LABEL"
+						description="MOD_SIMPLE_SURVEY_TEXT_DESC"
+						class="inputbox"
+						default="MOD_SIMPLE_SURVEY_TEXT"
+						size="20" />
+
+				<field
+						name="answer_positive"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_DESC"
+						class="inputbox"
+						default="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_DEFAULT"
+						size="20" />
+
+				<field
+						name="url_positive"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_URL_POSITIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_URL_POSITIVE_DESC"
+						class="inputbox"
+						size="20" />
+
+				<field
+						name="answer_negative"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_DESC"
+						class="inputbox"
+						default="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_DEFAULT"
+						size="20" />
+
+				<field
+						name="url_negative"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_URL_NEGATIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_URL_ANSWER_NEGATIVE_DESC"
+						class="inputbox"
+						size="20" />
+
+			</fieldset>
+			<fieldset name="advancedOptions" label="MOD_SIMPLE_SURVEY_ADVANCED_OPTIONS">
+
+				<field name="url_type"
+					   type="list"
+					   default="0"
+					   label="MOD_SIMPLE_SURVEY_URL_TYPE_LABEL"
+					   description="MOD_SIMPLE_SURVEY_URL_TYPE_DESC">
+					<option value="_blank">_blank</option>
+					<option value="_self">_self</option>
+					<option value="_parent">_parent</option>
+					<option value="_top">_top</option>
+				</field>
+
+				<field name="template"
+					   type="list"
+					   default="0"
+					   label="MOD_SIMPLE_SURVEY_STYLE_LABEL"
+					   description="MOD_SIMPLE_SURVEY_STYLE_DESC">
+					<option value="0">Default</option>
+					<option value="1">Bootstrap</option>
+				</field>
+
+				<field
+						name="html_params_positive"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DESC"
+						class="inputbox"
+						size="20" />
+
+				<field
+						name="html_params_negative"
+						type="text"
+						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_LABEL"
+						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DESC"
+						class="inputbox"
+						size="20" />
+
+				<field
+						name="include_js"
+						type="textarea"
+						label="MOD_SIMPLE_SURVEY_ADD_JS_LABEL"
+						description="MOD_SIMPLE_SURVEY_ADD_JS_DESC"
+						cols="10"
+						rows="3"
+				/>
+			</fieldset>
+		</fields>
+
+
+	</config>
+</extension>
