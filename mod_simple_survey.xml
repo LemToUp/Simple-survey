@@ -34,56 +34,19 @@
 						size="20" />
 
 				<field
-						name="spacer"
-						type="spacer"
-						hr="true"
-				/>
+						name="fields_list"
+						type="repeatable"
+						label="MOD_SIMPLE_SURVEY_BUTTON_LABEL"
+						select="MOD_SIMPLE_SURVEY_BUTTON_DESC"
+						description="Fields to show in module">
 
-				<field
-						name="answer_positive"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_DESC"
-						class="inputbox"
-						default="MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_DEFAULT"
-						size="20" />
+					<fieldset hidden="false" name="list_fields_modal" repeat="true">
+						<field name="field_answer" type="text" label="MOD_SIMPLE_SURVEY_ANSWER_DESC"/>
+						<field name="field_url" type="text" label="MOD_SIMPLE_SURVEY_URL_DESC"/>
+						<field name="field_params" type="text" label="MOD_SIMPLE_SURVEY_PARAMS_DESC" />
+					</fieldset>
 
-				<field
-						name="url_positive"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_URL_POSITIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_URL_POSITIVE_DESC"
-						class="inputbox"
-						size="20" />
-
-				<field
-						name="spacer1"
-						type="spacer"
-						hr="true"
-				/>
-
-				<field
-						name="answer_negative"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_DESC"
-						class="inputbox"
-						default="MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_DEFAULT"
-						size="20" />
-
-				<field
-						name="url_negative"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_URL_NEGATIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_URL_ANSWER_NEGATIVE_DESC"
-						class="inputbox"
-						size="20" />
-
-				<field
-						name="spacer2"
-						type="spacer"
-						hr="true"
-				/>
+				</field>
 
 			</fieldset>
 			<fieldset name="advancedOptions" label="MOD_SIMPLE_SURVEY_ADVANCED_OPTIONS">
@@ -107,22 +70,6 @@
 					<option value="0">Default</option>
 					<option value="1">Bootstrap</option>
 				</field>
-
-				<field
-						name="html_params_positive"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DESC"
-						class="inputbox"
-						size="20" />
-
-				<field
-						name="html_params_negative"
-						type="text"
-						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_LABEL"
-						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DESC"
-						class="inputbox"
-						size="20" />
 
 				<field
 						name="include_js"

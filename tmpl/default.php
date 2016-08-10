@@ -13,7 +13,8 @@
 <div class="simplesurvey">
     <p><?=$message?></p>
     <div class="btn-group">
-        <a class="btn btn-default" target="<?=$url_type?>" href="<?=$url_positive?>" <?=$html_params_positive?>><?=$answer_positive?></a>
-        <a class="btn btn-default" target="<?=$url_type?>" href="<?=$url_negative?>" <?=$html_params_negative?>><?=$answer_negative?></a>
+    <? foreach ($fields as $field) :?>
+        <a class="btn btn-default" target="<?=$url_type?>" href="<?=$field['field_url']?>" <?=$field['field_params']?>><?=$field['field_answer']?></a>
+    <? endforeach; ?>
     </div>
 </div>
