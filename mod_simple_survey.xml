@@ -109,19 +109,21 @@
 				</field>
 
 				<field
-						name="html_params_positive"
+						name="html_classes_positive"
 						type="text"
 						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_LABEL"
 						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DESC"
 						class="inputbox"
+						default="MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DEFAULT"
 						size="20" />
 
 				<field
-						name="html_params_negative"
+						name="html_classes_negative"
 						type="text"
 						label="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_LABEL"
 						description="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DESC"
 						class="inputbox"
+						default="MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DEFAULT"
 						size="20" />
 
 				<field

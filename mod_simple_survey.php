@@ -16,14 +16,39 @@ $doc = JFactory::getDocument();
 $loadJquery = $params->get('loadJquery', 1);
 $message = $params->get('text_message', '');
 $answer_positive = $params->get('answer_positive', JTEXT::_('MOD_SIMPLE_SURVEY_ANSWER_POSITIVE_DEFAULT'));
-$answer_negative = $params->get('answer_negative', JTEXT::_('MOD_SIMPLE_SURVEY_URL_POSITIVE_DEFAULT'));
+$answer_negative = $params->get('answer_negative', JTEXT::_('MOD_SIMPLE_SURVEY_ANSWER_NEGATIVE_DEFAULT'));
 $url_positive = $params->get('url_positive', '/');
 $url_negative = $params->get('url_negative', '/');
 $template = $params->get('template', 0);
 $url_type = $params->get('url_type', '_blank');
-$html_params_positive = $params->get('html_params_positive', '');
-$html_params_negative = $params->get('html_params_negative', '');
+$html_classes_positive = $params->get('html_classes_positive', JTEXT::_('MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DEFAULT'));
+$html_classes_negative = $params->get('html_classes_negative', JTEXT::_('MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DEFAULT'));
 $include_js = $params->get('include_js', '');
+
+$js = '
+	function surveyAjaxSend(object) {
+		event.preventDefault()
+ 	  var answer = jQuery(object).data("answer")
+ 	  
+	request = {
+		   "option" : "com_ajax",
+		   "module" : "simple_survey",
+		   "answer"   : answer,
+		   "format" : "raw"
+		};
+ 	  
+ 	  jQuery.ajax({
+          type: "POST",
+          data: request,
+          success: function(data) {
+            console.log(data);
+          },
+          error:  function(xhr, str){
+	    	console.log("Возникла ошибка: " + xhr.responseCode);
+          }
+        });
+    }
+';
 
 $css = '
 .simplesurvey a {
@@ -97,6 +122,7 @@ $css = '
 }
 ';
 
+$doc->addScriptDeclaration($js);
 if ($include_js) $doc->addScriptDeclaration($include_js);
 
 switch ($template) {

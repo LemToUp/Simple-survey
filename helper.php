@@ -11,6 +11,12 @@
 class modSimpleSurveyHelper {
 
 	public static function getAjax() {
-		
+		jimport('joomla.application.module.helper');
+		$input  = JFactory::getApplication()->input;
+		$module = JModuleHelper::getModule('fastnews');
+		$params = new JRegistry();
+		$params->loadString($module->params);
+
+		return $input->get('answer');
 	}
 }
