@@ -17,6 +17,25 @@ class modSimpleSurveyHelper {
 		$params = new JRegistry();
 		$params->loadString($module->params);
 
-		return $input->get('answer');
+		$answer = $input->get('answer');
+		$url = $input->get('url');
+		$url_from = $input->get('url_from');
+		$disabled = $input->get('disabled');
+
+		if (!$disabled) {
+
+			$db = JFactory::getDbo();
+			$object = new stdClass();
+
+			$object->button_text = $answer;
+			$object->button_url = $url;
+			$object->url_from = $url_from;
+
+			$result = $db->insertObject('#__simple_survey_history', $object);
+
+			if ($result) return $input->get('answer') . " / " . $input->get('url');
+			else return FALSE;
+		}
+		return FALSE;
 	}
 }

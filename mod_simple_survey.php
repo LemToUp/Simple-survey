@@ -27,26 +27,37 @@ $include_js = $params->get('include_js', '');
 
 $js = '
 	function surveyAjaxSend(object) {
-		event.preventDefault()
- 	  var answer = jQuery(object).data("answer")
+ 	  var answer = jQuery(object).data("answer"),
+ 	  url = jQuery(object).attr("href"),
+ 	  disabled = jQuery(object).attr("disabled"),
+ 	  current_url = window.location.href;
  	  
-	request = {
-		   "option" : "com_ajax",
-		   "module" : "simple_survey",
-		   "answer"   : answer,
-		   "format" : "raw"
-		};
+ 	  console.log(current_url);
  	  
- 	  jQuery.ajax({
-          type: "POST",
-          data: request,
-          success: function(data) {
-            console.log(data);
-          },
-          error:  function(xhr, str){
-	    	console.log("Возникла ошибка: " + xhr.responseCode);
-          }
-        });
+ 	  if (disabled) event.preventDefault();
+ 	  else {
+		request = {
+			   "option" : "com_ajax",
+			   "module" : "simple_survey",
+			   "format" : "raw",
+			   "answer" : answer,
+			   "url"    : url,
+			   "disabled" : disabled,
+			   "url_from" : current_url,
+			};
+		  
+		  jQuery.ajax({
+			  type: "POST",
+			  data: request,
+			  success: function(data) {
+				console.log(data);
+				jQuery(".simplesurvey a").attr("disabled",true);
+			  },
+			  error:  function(xhr, str){
+				console.log("Error: " + xhr.responseCode);
+			  }
+			});
+        }
     }
 ';
 
