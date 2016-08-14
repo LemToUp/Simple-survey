@@ -9,6 +9,7 @@
 
 // Include the helper.
 require_once __DIR__ . '/helper.php';
+$helper = new modSimpleSurveyHelper();
 
 // Instantiate global document object
 $doc = JFactory::getDocument();
@@ -23,6 +24,10 @@ $template = $params->get('template', 0);
 $url_type = $params->get('url_type', '_blank');
 $html_classes_positive = $params->get('html_classes_positive', JTEXT::_('MOD_SIMPLE_SURVEY_HTML_PARAMS_POSITIVE_DEFAULT'));
 $html_classes_negative = $params->get('html_classes_negative', JTEXT::_('MOD_SIMPLE_SURVEY_HTML_PARAMS_NEGATIVE_DEFAULT'));
+$bgc_positive = $params->get('backgroundcolor_positive', '#5cb85c');
+$bgc_negative = $params->get('backgroundcolor_negative', '#c9302c');
+$bgc_positive_dark = $helper->colourBrightness($bgc_positive, 1.1);
+$bgc_negative_dark = $helper->colourBrightness($bgc_negative, 1.1);
 $include_js = $params->get('include_js', '');
 
 $js = '
@@ -83,23 +88,23 @@ $css = '
     margin-left: -1px;
 }
 .simplesurvey .btn-group>.btn:hover {
-    z-index: 2;
+    z-index: 0;
 }
 .simplesurvey .btn-group-vertical>.btn, .btn-group>.btn {
     position: relative;
     float: left;
 }
 .simplesurvey .btn-default:hover {
-    color: #333;
+    color: #fff;
     background-color: #e6e6e6;
     border-color: #adadad;
 }
 .simplesurvey .btn.focus, .btn:focus, .btn:hover {
-    color: #333;
+    color: #fff;
     text-decoration: none;
 }
 .simplesurvey .btn-default {
-    color: #333;
+    color: #fff;
     background-color: #fff;
     border-color: #ccc;
 }
